@@ -1,0 +1,41 @@
+Mini-Project 4: Monster Identifier
+In this project, you’ll implement an agent that will learn a definition of a particular monster species from a list of positive and negative samples, and then make a determination about whether a newly-provided sample is an instance of that monster species or not.
+
+There are various different mechanisms from the course content you could use to complete this project. You might use incremental concept understanding, case-based reasoning, or version spaces. You might use something completely outside the course material as well. The way you approach the problem is up to you.
+
+Each monster you receive will have values for the following twelve parameters, from the list of potential values:
+
+    size: tiny, small, medium, large, huge
+    color: black, white, brown, gray, red, yellow, blue, green, orange, purple
+    covering: fur, feathers, scales, skin
+    foot-type: paw, hoof, talon, foot, none
+    leg-count: 0, 1, 2, 3, 4, 5, 6, 7, 8
+    arm-count: 0, 1, 2, 3, 4, 5, 6, 7, 8
+    eye-count: 0, 1, 2, 3, 4, 5, 6, 7, 8
+    horn-count: 0, 1, 2
+    lays-eggs: true, false
+    has-wings: true, false
+    has-gills: true, false
+    has-tail: true, false
+
+A single monster will be defined as a dictionary with those 12 keys. Each value will be one of the values from the corresponding list. The values associated with size, color, covering, and foot-type will be strings; with leg-count, arm-count, eye-count, and horn-count will be integers; and with lays-eggs, has-wings, has-gills, and has-tail will be booleans.
+
+What You’ll Be Given
+Here is your starter code: mini-p4.zip. You will only upload MonsterClassificationAgent.py for submission; main.py is to let you test your agent. We anticipate restructuring all the projects this way to allow for more easily interchangeable test cases.
+
+Your solve() method will have two parameters. The first will be a list of 2-tuples. The first item in each 2-tuple will be a dictionary representing a single monster. The second item in each 2-tuple will be a boolean representing whether that particular monster is an example of this new monster species. The second parameter will be a dictionary representing another monster.
+
+What You Should Return
+Your solve() method should return true or false based on whether your function believes this new monster (the second parameter) to be an example of the species defined by the labeled list of monsters (the first parameters).
+
+Remember, each monster species might have multiple possible values for each of the above parameters. One monster species, for instance, might include monsters that have gills and monsters that do not have gills. Another species might include monsters with either 1 or 2 horns, but never 0. Another species might include monsters that can be red, blue, and yellow, but no other colors.
+
+Not every list will be fully exhaustive. Your second parameter could, for example, feature a monster that is a color that never appeared as positive or negative in the list of samples. Your agent’s task is to make an educated guess.
+
+You may assume that the parameters are independent; for example, you will not have any species that has one horn when yellow and two horns when blue, but never one horn when blue. You may assume that all parameters are equally likely to occur; for example, you will not have any species that is yellow 90% of the time and blue only 10% of the time. Those ratios may appear in the list of samples you receive, but the underlying distribution of possibilities will be even. You may assume that these parameters are all that there is: if two monsters have the exact same parameters, they are guaranteed to be the same species. Finally, you should assume that each list is independent: you should not use knowledge from a prior test case to inform the current one.
+
+How You Will Be Graded
+Your agent will run against 20 test cases. The first four of these will always be the same. The last 16 will be randomly selected.
+
+For the purposes of this participation project, as long as your agent performs a bit better than random chance alone, you'll receive full credit: 13/20 or greater will receive full credit. If your agent doesn't perform that well, we'll still spot-check and see if your attempt was authentic enough to deserve credit. An earnest effort to solve the project will receive points.
+#pin
