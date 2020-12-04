@@ -96,8 +96,20 @@ class MonsterClassificationAgent:
                                 tree[color][size][footType] = {'status':0}
                             elif True in tempCheckList and False in tempCheckList: #undetermined
                                 tree[color][size][footType] = {'status':2}
+
+                                for covering in generalVersion['covering']:
+                                    tempCheckList.clear()
+                                    for monster in samples: #monster[0] is data and monster[1] is T/F
+                                        if monster[0]['covering'] == covering:
+                                            tempCheckList.append(monster[1])
+                                    if True in tempCheckList and False not in tempCheckList: #positive only
+                                        tree[color][size][footType][covering] = {'status':1}
+                                    elif False in tempCheckList and True not in tempCheckList: #negative only
+                                        tree[color][size][footType][covering] = {'status':0}
+                                    elif True in tempCheckList and False in tempCheckList: #undetermined
+                                        tree[color][size][footType][covering] = {'status':2}
                         
-                                tempCheckList.clear()
+
 
 
         
@@ -105,13 +117,51 @@ class MonsterClassificationAgent:
 
 
         for color in tree:
+            if color == 'status':
+                continue
             if tree[color]['status'] == 1:
                 if new_monster['color'] == color:
                     return True
-            elif tree[color['status']== 0:
+            elif tree[color]['status']== 0:
                 if new_monster['color'] == color:
                     return False
-                    
+            else: # status = 2, undetermined
+
+                for size in tree[color]:
+                    if size == 'status':
+                        continue
+                    if tree[color][size]['status'] == 1:
+                        if new_monster['size'] == size:
+                            return True
+                    elif tree[color][size]['status']== 0:
+                        if new_monster['size'] == size:
+                            return False
+                    else: # status = 2, undetermined
+
+                        for footType in tree[color][size]:
+                            if footType == 'status':
+                                continue
+                            if tree[color][size][footType]['status'] == 1:
+                                if new_monster['foot-type'] == footType:
+                                    return True
+                            elif tree[color][size][footType]['status']== 0:
+                                if new_monster['foot-type'] == footType:
+                                    return False
+                            else: # status = 2, undetermined
+
+                                for covering in tree[color][size][footType]:
+                                    if covering == 'status':
+                                        continue
+                                    if tree[color][size][footType][covering]['status'] == 1:
+                                        if new_monster['covering'] == covering:
+                                            return True
+                                    elif tree[color][size][footType][covering]['status']== 0:
+                                        if new_monster['covering'] == covering:
+                                            return False
+                        
+
+
+
         
 
 
