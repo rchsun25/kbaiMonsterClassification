@@ -204,7 +204,7 @@ class MonsterClassificationAgent:
                                                                                                     tempCheckList.clear()
                                                                                                     hasTailString = str(hasTail)
                                                                                                     for monster in samples: #monster[0] is data and monster[1] is T/F
-                                                                                                        if monster[0]['has-gills'] == hasTail:
+                                                                                                        if monster[0]['has-tail'] == hasTail:
                                                                                                             tempCheckList.append(monster[1])
                                                                                                     if True in tempCheckList and False not in tempCheckList: #positive only
                                                                                                         tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString][hasTailString] = {'status':1}
