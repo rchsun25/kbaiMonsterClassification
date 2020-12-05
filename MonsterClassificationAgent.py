@@ -108,12 +108,110 @@ class MonsterClassificationAgent:
                                         tree[color][size][footType][covering] = {'status':0}
                                     elif True in tempCheckList and False in tempCheckList: #undetermined
                                         tree[color][size][footType][covering] = {'status':2}
-                        
 
+                                        for legCount in generalVersion['leg-count']:
+                                            tempCheckList.clear()
+                                            legCountString = str(legCount)
+                                            for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                if monster[0]['leg-count'] == legCount:
+                                                    tempCheckList.append(monster[1])
+                                            if True in tempCheckList and False not in tempCheckList: #positive only
+                                                tree[color][size][footType][covering][legCountString] = {'status':1}
+                                            elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                tree[color][size][footType][covering][legCountString] = {'status':0}
+                                            elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                tree[color][size][footType][covering][legCountString] = {'status':2}
 
+                                                for armCount in generalVersion['arm-count']:
+                                                    tempCheckList.clear()
+                                                    armCountString = str(armCount)
+                                                    for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                        if monster[0]['arm-count'] == armCount:
+                                                            tempCheckList.append(monster[1])
+                                                    if True in tempCheckList and False not in tempCheckList: #positive only
+                                                        tree[color][size][footType][covering][legCountString][armCountString] = {'status':1}
+                                                    elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                        tree[color][size][footType][covering][legCountString][armCountString] = {'status':0}
+                                                    elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                        tree[color][size][footType][covering][legCountString][armCountString] = {'status':2}
 
-        
+                                                        for eyeCount in generalVersion['eye-count']:
+                                                            tempCheckList.clear()
+                                                            eyeCountString = str(eyeCount)
+                                                            for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                                if monster[0]['eye-count'] == eyeCount:
+                                                                    tempCheckList.append(monster[1])
+                                                            if True in tempCheckList and False not in tempCheckList: #positive only
+                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString] = {'status':1}
+                                                            elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString] = {'status':0}
+                                                            elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString] = {'status':2}
 
+                                                                for hornCount in generalVersion['horn-count']:
+                                                                    tempCheckList.clear()
+                                                                    hornCountString = str(hornCount)
+                                                                    for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                                        if monster[0]['horn-count'] == hornCount:
+                                                                            tempCheckList.append(monster[1])
+                                                                    if True in tempCheckList and False not in tempCheckList: #positive only
+                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString] = {'status':1}
+                                                                    elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString] = {'status':0}
+                                                                    elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString] = {'status':2}
+
+                                                                        for laysEggs in generalVersion['lays-eggs']:
+                                                                            tempCheckList.clear()
+                                                                            laysEggsString = str(laysEggs)
+                                                                            for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                                                if monster[0]['lays-eggs'] == laysEggs:
+                                                                                    tempCheckList.append(monster[1])
+                                                                            if True in tempCheckList and False not in tempCheckList: #positive only
+                                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString] = {'status':1}
+                                                                            elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString] = {'status':0}
+                                                                            elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString] = {'status':2}
+
+                                                                                for hasWings in generalVersion['has-wings']:
+                                                                                    tempCheckList.clear()
+                                                                                    hasWingsString = str(hasWings)
+                                                                                    for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                                                        if monster[0]['has-wings'] == hasWings:
+                                                                                            tempCheckList.append(monster[1])
+                                                                                    if True in tempCheckList and False not in tempCheckList: #positive only
+                                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString] = {'status':1}
+                                                                                    elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString] = {'status':0}
+                                                                                    elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString] = {'status':2}
+
+                                                                                        for hasGills in generalVersion['has-gills']:
+                                                                                            tempCheckList.clear()
+                                                                                            hasGillsString = str(hasGills)
+                                                                                            for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                                                                if monster[0]['has-gills'] == hasGills:
+                                                                                                    tempCheckList.append(monster[1])
+                                                                                            if True in tempCheckList and False not in tempCheckList: #positive only
+                                                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString] = {'status':1}
+                                                                                            elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString] = {'status':0}
+                                                                                            elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                                                                tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString] = {'status':2}
+                                                                                                
+                                                                                                for hasTail in generalVersion['has-tail']:
+                                                                                                    tempCheckList.clear()
+                                                                                                    hasTailString = str(hasTail)
+                                                                                                    for monster in samples: #monster[0] is data and monster[1] is T/F
+                                                                                                        if monster[0]['has-gills'] == hasTail:
+                                                                                                            tempCheckList.append(monster[1])
+                                                                                                    if True in tempCheckList and False not in tempCheckList: #positive only
+                                                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString][hasTailString] = {'status':1}
+                                                                                                    elif False in tempCheckList and True not in tempCheckList: #negative only
+                                                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString][hasTailString] = {'status':0}
+                                                                                                    elif True in tempCheckList and False in tempCheckList: #undetermined
+                                                                                                        tree[color][size][footType][covering][legCountString][armCountString][eyeCountString][hornCountString][laysEggsString][hasWingsString][hasGillsString][hasTailString] = {'status':2}
 
 
         for color in tree:
@@ -158,6 +256,101 @@ class MonsterClassificationAgent:
                                     elif tree[color][size][footType][covering]['status']== 0:
                                         if new_monster['covering'] == covering:
                                             return False
+                                    else: # status = 2, undetermined
+
+                                        for legCount in tree[color][size][footType][covering]:
+                                            if legCount == 'status':
+                                                continue
+                                            if tree[color][size][footType][covering][legCount]['status'] == 1:
+                                                if new_monster['leg-count'] == int(legCount):
+                                                    return True
+                                            elif tree[color][size][footType][covering][legCount]['status']== 0:
+                                                if new_monster['leg-count'] == int(legCount):
+                                                    return False
+                                            else: # status = 2, undetermined
+
+                                                for armCount in tree[color][size][footType][covering][legCount]:
+                                                    if armCount == 'status':
+                                                        continue
+                                                    if tree[color][size][footType][covering][legCount][armCount]['status'] == 1:
+                                                        if new_monster['arm-count'] == int(armCount):
+                                                            return True
+                                                    elif tree[color][size][footType][covering][legCount][armCount]['status']== 0:
+                                                        if new_monster['arm-count'] == int(armCount):
+                                                            return False
+                                                    else: # status = 2, undetermined
+
+                                                        for eyeCount in tree[color][size][footType][covering][legCount][armCount]:
+                                                            if eyeCount == 'status':
+                                                                continue
+                                                            if tree[color][size][footType][covering][legCount][armCount][eyeCount]['status'] == 1:
+                                                                if new_monster['eye-count'] == int(eyeCount):
+                                                                    return True
+                                                            elif tree[color][size][footType][covering][legCount][armCount][eyeCount]['status']== 0:
+                                                                if new_monster['eye-count'] == int(eyeCount):
+                                                                    return False
+
+                                                            else: # status = 2, undetermined
+
+                                                                for hornCount in tree[color][size][footType][covering][legCount][armCount][eyeCount]:
+                                                                    if hornCount == 'status':
+                                                                        continue
+                                                                    if tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount]['status'] == 1:
+                                                                        if new_monster['horn-count'] == int(hornCount):
+                                                                            return True
+                                                                    elif tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount]['status']== 0:
+                                                                        if new_monster['horn-count'] == int(hornCount):
+                                                                            return False
+
+                                                                    else: # status = 2, undetermined
+
+                                                                        for laysEggs in tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount]:
+                                                                            if laysEggs == 'status':
+                                                                                continue
+                                                                            if tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs]['status'] == 1:
+                                                                                if new_monster['lays-eggs'] == (laysEggs=='True'):
+                                                                                    return True
+                                                                            elif tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs]['status']== 0:
+                                                                                if new_monster['lays-eggs'] == (laysEggs=='True'):
+                                                                                    return False
+
+                                                                            else: # status = 2, undetermined
+
+                                                                                for hasWings in tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs]:
+                                                                                    if hasWings == 'status':
+                                                                                        continue
+                                                                                    if tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings]['status'] == 1:
+                                                                                        if new_monster['has-wings'] == (hasWings=='True'):
+                                                                                            return True
+                                                                                    elif tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings]['status']== 0:
+                                                                                        if new_monster['has-wings'] == (hasWings=='True'):
+                                                                                            return False
+
+                                                                                    else: # status = 2, undetermined
+
+                                                                                        for hasGills in tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings]:
+                                                                                            if hasGills == 'status':
+                                                                                                continue
+                                                                                            if tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings][hasGills]['status'] == 1:
+                                                                                                if new_monster['has-gills'] == (hasGills=='True'):
+                                                                                                    return True
+                                                                                            elif tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings][hasGills]['status']== 0:
+                                                                                                if new_monster['has-gills'] == (hasGills=='True'):
+                                                                                                    return False
+
+                                                                                            else: # status = 2, undetermined
+
+                                                                                                for hasTail in tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings][hasGills]:
+                                                                                                    if hasTail == 'status':
+                                                                                                        continue
+                                                                                                    if tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings][hasGills][hasTail]['status'] == 1:
+                                                                                                        if new_monster['has-tail'] == (hasTail=='True'):
+                                                                                                            return True
+                                                                                                    elif tree[color][size][footType][covering][legCount][armCount][eyeCount][hornCount][laysEggs][hasWings][hasGills][hasTail]['status']== 0:
+                                                                                                        if new_monster['has-tail'] == (hasTail=='True'):
+                                                                                                            return False
+
+                                                    
                         
 
 
